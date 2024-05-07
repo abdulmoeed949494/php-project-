@@ -69,9 +69,9 @@
         <div class="" style="width: 18rem; ">
           <img src=" ' . $picurl . ' " class="card-img-top" alt="..." height="180px" width="150px">
           <div class="card-body">
-            <h5 class="card-title" >' . $catname . '</h5>
-            <p class="card-text">' . substr($catdesc, 0, 20) . $catdesc . '</p>
-            <a href="#" class="btn btn-primary"> view threds</a>
+            <h5 class="card-title" ><a href="threeds.php?catid='.$catsri.'">'.$catname.'</a></h5>
+            <p class="card-text">' . substr($catdesc, 0, 10) . $catdesc . '</p>
+            <a href="threeds.php?catid='.$catsri.'" class="btn btn-primary"> view threeds </a>
           </div>
         </div>
       </div>
