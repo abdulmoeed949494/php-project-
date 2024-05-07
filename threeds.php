@@ -15,32 +15,28 @@
   <?php include "partial/haeder.php"; ?>
   <?php include "partial/db_connect.php"; ?>
 
-<?php
+  <?php
 
 $cat_sri=$_GET['catid'];
 $sql = "SELECT * FROM `pcinfo` WHERE catagery_sri=$cat_sri";
 $result = mysqli_query($inf, $sql);
 while ($row = mysqli_fetch_assoc($result)){
-$catname=$row['catagery_name'];
-$catdesc=$row['catagery_desc'];
+
+  $catname = $row['catagery_name'];
+  $catsri = $row['catagery_sri'];
+  $picurl = $row['url'];
+  $catdesc = $row['catagery_desc'];
 
 
 }
 
-
 ?>
 
 
-
-
-
-
-
   <div class="container my-4">
-
   <div class="jumbotron">
-  <h1 class="display-4">wellcome to pc info pakistan <?php echo $catname ?> </h1>
-  <p class="lead"><?php echo $catdesc ?> </p>
+  <h1 class="display-4">wellcome to pc info pakistan <?php echo $catname?> </h1>
+  <p class="lead"> <?php echo $catdesc ?></p>
   <hr class="my-4">
   <p class="bg-danger">Be civil. Don't post anything that a reasonable person would consider offensive, abusive, or hate speech.
 Keep it clean. Don't post anything obscene or sexually explicit.
@@ -55,6 +51,22 @@ Respect each other. Don't harass or grief anyone, impersonate people, or expose 
   <div class="container">
     <h1 class="py-3">browse question</h1>
 
+    <?php
+
+$cat_sri=$_GET['catid'];
+$sql = "SELECT * FROM `threeds` WHERE threed_cat_id=$cat_sri";
+$result = mysqli_query($inf, $sql);
+while ($row = mysqli_fetch_assoc($result)){
+$threed_id=$row['threed_id'];
+$threed_title=$row['threed_title'];
+$threed_desc=$row['threed_desc'];
+
+
+}
+
+
+echo '
+
     <div class="media my-3">
   <img src="img/user.jfif" class="mr-3" alt="..." height="35px" width="40px">
   <div class="media-body">
@@ -63,6 +75,9 @@ Respect each other. Don't harass or grief anyone, impersonate people, or expose 
   </div>
 </div>
 
+';
+
+?>
 
 <div class="media my-3">
   <img src="img/user.jfif" class="mr-3" alt="..." height="35px" width="40px">
