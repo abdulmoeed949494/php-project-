@@ -17,8 +17,8 @@
 
   <?php
 
-$cat_sri=$_GET['catid'];
-$sql = "SELECT * FROM `pcinfo` WHERE catagery_sri=$cat_sri";
+$catid=$_GET['catid'];
+$sql = "SELECT * FROM `pcinfo` WHERE catagery_sri=$catid";
 $result = mysqli_query($inf, $sql);
 while ($row = mysqli_fetch_assoc($result)){
 
@@ -35,7 +35,7 @@ while ($row = mysqli_fetch_assoc($result)){
 
   <div class="container my-4">
   <div class="jumbotron">
-  <h1 class="display-4">wellcome to pc info pakistan <?php echo $catname?> </h1>
+  <h1 class="display-4">wellcome to pc info pakistan catagery : <br><?php echo $catname?> </h1>
   <p class="lead"> <?php echo $catdesc ?></p>
   <hr class="my-4">
   <p class="bg-danger">Be civil. Don't post anything that a reasonable person would consider offensive, abusive, or hate speech.
@@ -53,12 +53,12 @@ Respect each other. Don't harass or grief anyone, impersonate people, or expose 
 
     <?php
 
-$cat_sri=$_GET['catid'];
-$sql = "SELECT * FROM `threeds` WHERE threed_cat_id=$cat_sri";
+$cat_id=$_GET['catid'];
+$sql = "SELECT * FROM `threeds` WHERE threed_cat_id=$cat_id";
 $result = mysqli_query($inf, $sql);
 while ($row = mysqli_fetch_assoc($result)){
 $threed_id=$row['threed_id'];
-$threed_title=$row['threed_title'];
+$threedtitle=$row['threed_title'];
 $threed_desc=$row['threed_desc'];
 
 
@@ -70,7 +70,7 @@ echo '
     <div class="media my-3">
   <img src="img/user.jfif" class="mr-3" alt="..." height="35px" width="40px">
   <div class="media-body">
-    <h5 class="mt-0">Media heading</h5>
+    <h5 class="mt-0"><a href="thread.php">'.$threedtitle.'</a></h5>
     Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
   </div>
 </div>
@@ -79,7 +79,9 @@ echo '
 
 ?>
 
-<div class="media my-3">
+<!-- later i am remove this media  -->
+
+<!-- <div class="media my-3">
   <img src="img/user.jfif" class="mr-3" alt="..." height="35px" width="40px">
   <div class="media-body">
     <h5 class="mt-0">Media heading</h5>
@@ -103,7 +105,7 @@ echo '
     <h5 class="mt-0">Media heading</h5>
     Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
   </div>
-</div> 
+</div>  -->
 
 
   </div>
