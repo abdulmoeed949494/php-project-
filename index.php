@@ -3,7 +3,6 @@
 
 <head>
   <!-- Required meta tags -->
-  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
@@ -58,20 +57,20 @@
       $sql = "SELECT * FROM `pcinfo`";
       $result = mysqli_query($inf, $sql);
       while ($row = mysqli_fetch_assoc($result)) {
-      $catname=$row['catagery_name'];
-       $catsri=$row['catagery_sri'];
-       $picurl=$row['url'];
-       $catdesc=$row['catagery_desc'];
-      
+        $catname = $row['catagery_name'];
+        $catsri = $row['catagery_sri'];
+        $picurl = $row['url'];
+        $catdesc = $row['catagery_desc'];
+
         echo '
 
       <div class="col-md-4 my-2">
-      <h3> '.$catsri.'</h3>
+      <h3> ' . $catsri . '</h3>
         <div class="" style="width: 18rem; ">
-          <img src=" '.$picurl.' " class="card-img-top" alt="..." height="180px" width="150px">
+          <img src=" ' . $picurl . ' " class="card-img-top" alt="..." height="180px" width="150px">
           <div class="card-body">
-            <h5 class="card-title" >'.$catname.'</h5>
-            <p class="card-text">'.$catdesc.'</p>
+            <h5 class="card-title" >' . $catname . '</h5>
+            <p class="card-text">' . substr($catdesc, 0, 20) . $catdesc . '</p>
             <a href="#" class="btn btn-primary"> view threds</a>
           </div>
         </div>
