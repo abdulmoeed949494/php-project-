@@ -11,41 +11,49 @@
   <title>pc info pakistan</title>
 </head>
 
+<style>
+
+#ques{
+min-height: 100px;
+}
+
+</style>
+
+
+
 <body>
   <?php include "partial/haeder.php"; ?>
   <?php include "partial/db_connect.php"; ?>
 
   <?php
 
-$catid=$_GET['catid'];
-$sql = "SELECT * FROM `pcinfo` WHERE catagery_sri=$catid";
-$result = mysqli_query($inf, $sql);
-while ($row = mysqli_fetch_assoc($result)){
+  $catid = $_GET['catid'];
+  $sql = "SELECT * FROM `pcinfo` WHERE catagery_sri=$catid";
+  $result = mysqli_query($inf, $sql);
+  while ($row = mysqli_fetch_assoc($result)) {
 
-  $catname = $row['catagery_name'];
-  $catsri = $row['catagery_sri'];
-  $picurl = $row['url'];
-  $catdesc = $row['catagery_desc'];
-
-
-}
+    $catname = $row['catagery_name'];
+    $catsri = $row['catagery_sri'];
+    $picurl = $row['url'];
+    $catdesc = $row['catagery_desc'];
+  }
 
 
-?>
+  ?>
 
 
   <div class="container my-4">
-  <div class="jumbotron">
-  <h1 class="display-4">wellcome to pc info pakistan catagery : <br><?php echo $catname?> </h1>
-  <p class="lead"> <?php echo $catdesc ?></p>
-  <hr class="my-4">
-  <p class="bg-danger">Be civil. Don't post anything that a reasonable person would consider offensive, abusive, or hate speech.
-Keep it clean. Don't post anything obscene or sexually explicit.
-Respect each other. Don't harass or grief anyone, impersonate people, or expose their private information. </p>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-</div>
+    <div class="jumbotron">
+      <h1 class="display-4">wellcome to pc info pakistan catagery : <br><?php echo $catname ?> </h1>
+      <p class="lead"> <?php echo $catdesc ?></p>
+      <hr class="my-4">
+      <p class="bg-danger">Be civil. Don't post anything that a reasonable person would consider offensive, abusive, or hate speech.
+        Keep it clean. Don't post anything obscene or sexually explicit.
+        Respect each other. Don't harass or grief anyone, impersonate people, or expose their private information. </p>
+      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </div>
 
- 
+
   </div>
 
 
@@ -55,39 +63,38 @@ Respect each other. Don't harass or grief anyone, impersonate people, or expose 
 
     <?php
 
-$catid=$_GET['catid'];
-$sql = "SELECT * FROM `threeds` WHERE threed_id=$catid";
-$result = mysqli_query($inf, $sql);
-while ($row = mysqli_fetch_assoc($result)){
+    $id = $_GET['catid'];
+    $sql = "SELECT * FROM `threeds` WHERE threed_user_id=$id";
+    $result = mysqli_query($inf, $sql);
+    while ($row = mysqli_fetch_assoc($result)) {
 
-  $catid = $row['threed_id'];
-  $thname=$row['name'];
-  $threed_user_id = $row['threed_user_id'];
-  $thtitle = $row['threed_title'];
-  $thdesc = $row['threed_desc'];
+      $id= $row['threed_id'];
+      $thname = $row['name'];
+      $threeduserid = $row['threed_user_id'];
+      $thtitle = $row['threed_title'];
+      $thdesc = $row['threed_desc'];
 
 
 
-echo '
+      echo '
 
-    <div class="media my-3">
+    <div class="media my-3" id="ques">
   <img src="img/user.jfif" class="mr-3" alt="..." height="35px" width="40px">
   <div class="media-body">
-    <h5 class="mt-0"><a class="text-dark" href="thread.php">'.$thname.'</a></h5>
-   '.$thdesc.'
+    <h3 class="mt-0"><a class="text-dark" href="thread.php?" >'.$thname.'</a></h3>
+    <h5>'.$thdesc.'</h5>
   </div>
 </div>
 
 ';
+    }
 
-}
-
-?>
+    ?>
 
 
-<!-- later i am remove this media  -->
-
-<!-- <div class="media my-3">
+    <!-- later i am remove this media  -->
+<!-- 
+    <div class="media my-3">
   <img src="img/user.jfif" class="mr-3" alt="..." height="35px" width="40px">
   <div class="media-body">
     <h5 class="mt-0">Media heading</h5>
