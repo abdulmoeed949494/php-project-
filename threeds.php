@@ -30,6 +30,7 @@ while ($row = mysqli_fetch_assoc($result)){
 
 }
 
+
 ?>
 
 
@@ -51,18 +52,20 @@ Respect each other. Don't harass or grief anyone, impersonate people, or expose 
   <div class="container">
     <h1 class="py-3">browse question</h1>
 
+
     <?php
 
-$cat_id=$_GET['catid'];
-$sql = "SELECT * FROM `threeds` WHERE threed_cat_id=$cat_id";
+$catid=$_GET['catid'];
+$sql = "SELECT * FROM `threeds` WHERE threed_id=$catid";
 $result = mysqli_query($inf, $sql);
 while ($row = mysqli_fetch_assoc($result)){
-$threed_id=$row['threed_id'];
-$threedtitle=$row['threed_title'];
-$threed_desc=$row['threed_desc'];
 
+  $catid = $row['threed_id'];
+  $thname=$row['name'];
+  $threed_user_id = $row['threed_user_id'];
+  $thtitle = $row['threed_title'];
+  $thdesc = $row['threed_desc'];
 
-}
 
 
 echo '
@@ -70,14 +73,17 @@ echo '
     <div class="media my-3">
   <img src="img/user.jfif" class="mr-3" alt="..." height="35px" width="40px">
   <div class="media-body">
-    <h5 class="mt-0"><a href="thread.php">'.$threedtitle.'</a></h5>
-    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    <h5 class="mt-0"><a class="text-dark" href="thread.php">'.$thname.'</a></h5>
+   '.$thdesc.'
   </div>
 </div>
 
 ';
 
+}
+
 ?>
+
 
 <!-- later i am remove this media  -->
 
