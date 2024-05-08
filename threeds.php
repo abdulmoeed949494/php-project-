@@ -50,8 +50,8 @@ margin-bottom: 300px;
       <hr class="my-4">
       <p class="bg-danger">Be civil. Don't post anything that a reasonable person would consider offensive, abusive, or hate speech.
         Keep it clean. Don't post anything obscene or sexually explicit.
-        Respect each other. Don't harass or grief anyone, impersonate people, or expose their private information. </p>
-      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        Respect each other. Don't harass or grief anyone, impersonate people, or expose their private information thank you. </p>
+      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>   
     </div>
 
 

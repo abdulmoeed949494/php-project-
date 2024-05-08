@@ -28,15 +28,14 @@ margin-bottom: 300px;
 
   <?php
 
-  $id = $_GET['catid'];
-  $sql = "SELECT * FROM `pcinfo` WHERE catagery_sri=$id";
+  $id = $_GET['threadid'];
+  $sql = "SELECT * FROM `threeds` WHERE threed_id =$id";
   $result = mysqli_query($inf, $sql);
   while ($row = mysqli_fetch_assoc($result)) {
+    $thname=$row['name'];
+    $title=$row['threed_title'];
+    $desc=$row['threed_desc'];
 
-    $catname = $row['catagery_name'];
-    $catsri = $row['catagery_sri'];
-    $picurl = $row['url'];
-    $catdesc = $row['catagery_desc'];
   }  
 
 
@@ -45,13 +44,13 @@ margin-bottom: 300px;
 
   <div class="container my-4">
     <div class="jumbotron">
-      <h1 class="display-4">wellcome to pc info pakistan catagery : <br><?php echo $catname ?> </h1>
-      <p class="lead"> <?php echo $catdesc ?></p>
+      <h1 class="display-4">hi me i can help you <?php echo $thname ?>: </h1>
+      <p class="lead">massege : <?php echo $desc ?> </p>
       <hr class="my-4">
-      <p class="bg-danger">Be civil. Don't post anything that a reasonable person would consider offensive, abusive, or hate speech.
+      <p class="bg-warning">!    Be civil. Don't post anything that a reasonable person would consider offensive, abusive, or hate speech.
         Keep it clean. Don't post anything obscene or sexually explicit.
-        Respect each other. Don't harass or grief anyone, impersonate people, or expose their private information. </p>
-      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        Respect each other. Don't harass or grief anyone, impersonate people, or expose their private information thank you. </p>
+      <p><b>POSTED BY HUZAIFA RABNAWAZ</b></p>
     </div>
 
 
@@ -59,9 +58,9 @@ margin-bottom: 300px;
 
 
   <div class="container" id="ques">
-    <h1 class="py-3">browse question</h1>
+    <h1 class="py-3">dicussions</h1>
 
-
+<!-- 
     <?php
 
     $id = $_GET['catid'];
@@ -90,7 +89,7 @@ margin-bottom: 300px;
 ';
     }
 
-    ?>
+    ?> -->
 
 
     <!-- later i am remove this media  -->
