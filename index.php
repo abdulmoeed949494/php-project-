@@ -11,6 +11,15 @@
   <title>pc info pakistan</title>
 </head>
 
+<style>
+
+#ques{
+min-height: 433px;
+}
+
+</style>
+
+
 <body>
   <?php include "partial/haeder.php"; ?>
   <?php include "partial/db_connect.php"; ?>
@@ -48,7 +57,7 @@
 
 
 
-  <div class="container">
+  <div class="container my-4  " id="ques">
     <h1 class="text-center">well come to pc info pakistan</h1>
     <div class="row">
 
@@ -76,7 +85,8 @@
         </div>
       </div>
       
-      ';
+       ';
+
       }
 
 

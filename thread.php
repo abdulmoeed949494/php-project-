@@ -28,8 +28,8 @@ margin-bottom: 300px;
 
   <?php
 
-  $catid = $_GET['catid'];
-  $sql = "SELECT * FROM `pcinfo` WHERE catagery_sri=$catid";
+  $id = $_GET['catid'];
+  $sql = "SELECT * FROM `pcinfo` WHERE catagery_sri=$id";
   $result = mysqli_query($inf, $sql);
   while ($row = mysqli_fetch_assoc($result)) {
 
@@ -37,7 +37,7 @@ margin-bottom: 300px;
     $catsri = $row['catagery_sri'];
     $picurl = $row['url'];
     $catdesc = $row['catagery_desc'];
-  }
+  }  
 
 
   ?>
@@ -82,7 +82,7 @@ margin-bottom: 300px;
     <div class="media my-3">
   <img src="img/user.jfif" class="mr-3" alt="..." height="35px" width="40px">
   <div class="media-body">
-    <h3 class="mt-0"><a class="text-dark" href="thread.php?threadid='.$id.'" >'.$thname.'</a></h3>
+    <h3 class="mt-0"><a class="text-dark" href="thread.php">'.$thname.'</a></h3>
     <h5>'.$thdesc.'</h5>
   </div>
 </div>
