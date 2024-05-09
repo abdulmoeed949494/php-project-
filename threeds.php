@@ -33,6 +33,9 @@ margin-bottom: 300px;
   $result = mysqli_query($inf, $sql);
   while ($row = mysqli_fetch_assoc($result)) {
 
+  
+
+
     $catname = $row['catagery_name'];
     $catsri = $row['catagery_sri'];
     $picurl = $row['url'];
@@ -64,10 +67,12 @@ margin-bottom: 300px;
 
     <?php
 
-    $id = $_GET['catid'];
-    $sql = "SELECT * FROM `threeds` WHERE threed_user_id=$id";
-    $result = mysqli_query($inf, $sql);
+$id = $_GET['catid'];
+$sql = "SELECT * FROM `threeds` WHERE threed_user_id=$id";
+$result = mysqli_query($inf, $sql);
+$got=true;
     while ($row = mysqli_fetch_assoc($result)) {
+      $noresult=false;
 
       $id= $row['threed_id'];
       $thname = $row['name'];
@@ -90,7 +95,36 @@ margin-bottom: 300px;
 ';
     }
 
+    if($got){
+      echo '  <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">NO RESULT FOUND </h1>
+        <p class="lead">be the firt person ask a question</p>
+      </div>
+    </div> ';
+    }
+
     ?>
+
+
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">problam title </label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">kep your tilte short and crisp as posible</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">elaborate your probalm </label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
 
 
     <!-- later i am remove this media  -->
