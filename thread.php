@@ -12,12 +12,10 @@
 </head>
 
 <style>
+  #ques {
 
-#ques{
-
-margin-bottom: 300px;
-}
-
+    margin-bottom: 300px;
+  }
 </style>
 
 
@@ -32,11 +30,9 @@ margin-bottom: 300px;
   $sql = "SELECT * FROM `threeds` WHERE threed_id =$id";
   $result = mysqli_query($inf, $sql);
   while ($row = mysqli_fetch_assoc($result)) {
-    $thname=$row['name'];
-    $title=$row['threed_title'];
-    $desc=$row['threed_desc'];
-
-  }  
+    $title = $row['threed_title'];
+    $desc = $row['threed_desc'];
+  }
 
 
   ?>
@@ -44,10 +40,10 @@ margin-bottom: 300px;
 
   <div class="container my-4">
     <div class="jumbotron">
-      <h1 class="display-4">hi me i can help you <?php echo $thname ?>: </h1>
+      <h1 class="display-4">hi me i can help you : user <?php echo $title ?> </h1>
       <p class="lead">massege : <?php echo $desc ?> </p>
       <hr class="my-4">
-      <p class="bg-warning">!    Be civil. Don't post anything that a reasonable person would consider offensive, abusive, or hate speech.
+      <p class="bg-warning">! Be civil. Don't post anything that a reasonable person would consider offensive, abusive, or hate speech.
         Keep it clean. Don't post anything obscene or sexually explicit.
         Respect each other. Don't harass or grief anyone, impersonate people, or expose their private information thank you. </p>
       <p><b>POSTED BY HUZAIFA RABNAWAZ</b></p>
@@ -60,16 +56,19 @@ margin-bottom: 300px;
   <div class="container" id="ques">
     <h1 class="py-3">dicussions</h1>
 
-<!-- 
+    <!-- 
     <?php
 
     $id = $_GET['catid'];
     $sql = "SELECT * FROM `threeds` WHERE threed_user_id=$id";
     $result = mysqli_query($inf, $sql);
+    $got = true;
+
     while ($row = mysqli_fetch_assoc($result)) {
 
-      $id= $row['threed_id'];
-      $thname = $row['name'];
+      $noresult = false;
+
+      $id = $row['threed_id'];
       $threeduserid = $row['threed_user_id'];
       $thtitle = $row['threed_title'];
       $thdesc = $row['threed_desc'];
@@ -81,19 +80,29 @@ margin-bottom: 300px;
     <div class="media my-3">
   <img src="img/user.jfif" class="mr-3" alt="..." height="35px" width="40px">
   <div class="media-body">
-    <h3 class="mt-0"><a class="text-dark" href="thread.php">'.$thname.'</a></h3>
-    <h5>'.$thdesc.'</h5>
+    <h3 class="mt-0"><a class="text-dark" href="thread.php"></a></h3>
+    <h5>' . $thdesc . '</h5>
   </div>
 </div>
 
 ';
     }
 
+
+    if ($got) {
+      echo '  <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">NO RESULT FOUND </h1>
+        <p class="lead">be the firt person ask a question</p>
+      </div>
+    </div> ';
+    }
+
     ?> -->
 
 
     <!-- later i am remove this media  -->
-<!-- 
+    <!-- 
     <div class="media my-3">
   <img src="img/user.jfif" class="mr-3" alt="..." height="35px" width="40px">
   <div class="media-body">

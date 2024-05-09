@@ -74,12 +74,12 @@ min-height: 433px;
         echo '
 
       <div class="col-md-4 my-2">
-      <h3> ' . $catsri . '</h3>
+      <h3></h3>
         <div class="" style="width: 18rem; ">
           <img src=" ' . $picurl . ' " class="card-img-top" alt="..." height="180px" width="150px">
           <div class="card-body">
             <h5 class="card-title" ><a href="threeds.php?catid='.$catsri.'">'.$catname.'</a></h5>
-            <p class="card-text">' . substr($catdesc, 0, 10) . $catdesc . '</p>
+            <p class="card-text">'  . $catdesc . '</p>
             <a href="threeds.php?catid='.$catsri.'" class="btn btn-primary"> view threeds </a>
           </div>
         </div>
@@ -94,7 +94,9 @@ min-height: 433px;
 
 
 
+<!-- i have no use this components  -->
 
+<!-- . substr($catdesc, 0, 30) -->
 
 
 
