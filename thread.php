@@ -32,6 +32,8 @@
   while ($row = mysqli_fetch_assoc($result)) {
     $title = $row['threed_title'];
     $desc = $row['threed_desc'];
+    $thcatid=$row['threed_cat_id'];
+   
   }
 
 
@@ -72,7 +74,7 @@
       $threeduserid = $row['threed_user_id'];
       $thtitle = $row['threed_title'];
       $thdesc = $row['threed_desc'];
-
+     
 
 
       echo '
@@ -101,33 +103,6 @@
     ?> -->
 
 
-    <!-- later i am remove this media  -->
-    <!-- 
-    <div class="media my-3">
-  <img src="img/user.jfif" class="mr-3" alt="..." height="35px" width="40px">
-  <div class="media-body">
-    <h5 class="mt-0">Media heading</h5>
-    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-  </div>
-</div>
-
-
-<div class="media my-3">
-  <img src="img/user.jfif" class="mr-3" alt="..." height="35px" width="40px">
-  <div class="media-body">
-    <h5 class="mt-0">Media heading</h5>
-    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-  </div>
-</div>
-
-
-<div class="media my-3">
-  <img src="img/user.jfif" class="mr-3" alt="..." height="35px" width="40px">
-  <div class="media-body">
-    <h5 class="mt-0">Media heading</h5>
-    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-  </div>
-</div>  -->
 
 
   </div>
