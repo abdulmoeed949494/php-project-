@@ -53,7 +53,8 @@
   if ($method == 'POST') {
       $thrtitle = $_POST['title'];
       $thrdesc = $_POST['desc'];
-      $sql="INSERT INTO `threeds` ( `threed_title`, `threed_desc`, `threed_cat_id`, `threed_user_id`, `timestamp`) VALUES ( '$thrtitle ', '$thrdesc', '$id'  , '$id', current_timestamp())";
+      $sql = "INSERT INTO `threeds` (`threed_title`, `threed_desc`, `threed_cat_id`, `threed_user_id`, `timestamp`) 
+        VALUES ('$thrtitle', '$thrdesc', '$id', '$id', current_timestamp())";
          
       $result = mysqli_query($inf, $sql);
   $showAlert=true;
@@ -110,7 +111,7 @@
   </div>
 
 
-      <button type="submit" class="btn btn-success">Submit</button>
+      <button type="submit" class="btn btn-success mb-2">Submit</button>
     </form>
 
 
@@ -130,13 +131,15 @@
       $thtitle = $row['threed_title'];
       $thdesc = $row['threed_desc'];
       $thcatid=$row['threed_cat_id'];
-
+      $thtime=$row['timestamp'];
 
       echo '
 
     <div class="media my-3">
   <img src="img/user.jfif" class="mr-3" alt="..." height="35px" width="40px">
   <div class="media-body">
+  <p class="font-weight-bold">Anonymus user at time
+  <br> ' . $thtime . '</p>
     <h3 class="mt-0"><a class="text-dark" href="thread.php?threadid=' .$thid. '" >'.$thtitle.'</a></h3>
     <h5>' . $thdesc . '</h5>
   </div>

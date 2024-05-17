@@ -4,14 +4,18 @@
 #ft{
 
    margin-bottom: -40px;
+   /* width: 1200px ; */
+   text-align: center;
+   background-color: black;
+   color: white;
 }
 
 </style>
 
 
- <div class="container-fluid bg-dark text-light my-4 " id="">
+ <!-- <div class="flex justify-center bg-dark text-light my-4 w-96" id="ft"> -->
 
-    <p class="text-center" id="ft"> COPY RIGHT HATECH</p>
+    <div  id="ft"> COPY RIGHT HATECH</div>
 
     </div>
   

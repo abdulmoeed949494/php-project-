@@ -15,6 +15,7 @@
   #ques {
 
     margin-bottom: 300px;
+    /* width: fit-content; */
   }
 </style>
 
@@ -32,12 +33,41 @@
   while ($row = mysqli_fetch_assoc($result)) {
     $title = $row['threed_title'];
     $desc = $row['threed_desc'];
-    $thcatid=$row['threed_cat_id'];
-   
+    $thcatid = $row['threed_cat_id'];
   }
 
 
   ?>
+
+
+  <?php
+  $showAlert = false;
+  $method = $_SERVER['REQUEST_METHOD'];
+  if ($method == 'POST') {
+    $comment = $_POST['comment'];
+    $sql = "INSERT INTO `comments` (`comment_content`, `threed_id`, `comment_by`, `comment_time`) VALUES ( '$comment', '$id', '1', current_timestamp())";
+
+    $result = mysqli_query($inf, $sql);
+    $showAlert = true;
+    if ($showAlert) {
+
+      echo '
+    
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>your threads hase been submitted!</strong> thank you for shearing your threads.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+    
+    ';
+    }
+  };
+
+  ?>
+
+
+
 
 
   <div class="container my-4">
@@ -51,74 +81,98 @@
       <p><b>POSTED BY HUZAIFA RABNAWAZ</b></p>
     </div>
 
-
   </div>
 
 
-  <div class="container" id="ques">
-    <h1 class="py-3">dicussions</h1>
-
-    <!-- 
-    <?php
-
-    $id = $_GET['catid'];
-    $sql = "SELECT * FROM `threeds` WHERE threed_user_id=$id";
-    $result = mysqli_query($inf, $sql);
-    $got = true;
-
-    while ($row = mysqli_fetch_assoc($result)) {
-
-      $noresult = false;
-
-      $id = $row['threed_id'];
-      $threeduserid = $row['threed_user_id'];
-      $thtitle = $row['threed_title'];
-      $thdesc = $row['threed_desc'];
-     
 
 
-      echo '
+
+
+
+
+  <div class="container">
+    <h1 class="py-3">post comment </h1>
+
+
+    <form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post">
+
+
+      <div class="form-group">
+        <label for="desc">type your comment </label>
+        <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+      </div>
+
+
+      <button type="submit" class="btn btn-success">post comment</button>
+    </form>
+
+
+
+
+
+
+    <div class="container" id="ques">
+      <h1 class="py-3">dicussions</h1>
+
+      <?php
+
+      $id = $_GET['threadid'];
+      $sql = "SELECT * FROM `comments` WHERE threed_id=$id";
+      $result = mysqli_query($inf, $sql);
+      $noresult = true;
+
+      while ($row = mysqli_fetch_assoc($result)) {
+
+        $noresult = false;
+
+        $id = $row['comment_id'];
+        $content = $row['comment_content'];
+        $comment_time = $row['comment_time'];
+
+
+        echo '
 
     <div class="media my-3">
   <img src="img/user.jfif" class="mr-3" alt="..." height="35px" width="40px">
   <div class="media-body">
-    <h3 class="mt-0"><a class="text-dark" href="thread.php"></a></h3>
-    <h5>' . $thdesc . '</h5>
+  <p class="font-weight-bold">Anonymus user at time
+  <br> ' . $comment_time . '</p>
+  ' . $content . '
   </div>
 </div>
 
 ';
-    }
+      }
 
 
-    if ($got) {
-      echo '  <div class="jumbotron jumbotron-fluid">
+      if ($noresult) {
+        echo '  <div class="jumbotron jumbotron-fluid">
       <div class="container">
-        <h1 class="display-4">NO RESULT FOUND </h1>
+        <h1 class="display-4">no threads found</h1>
         <p class="lead">be the firt person ask a question</p>
       </div>
     </div> ';
-    }
+      }
 
-    ?> -->
-
-
-
-
-  </div>
+      ?>
 
 
 
 
+    </div>
 
 
-  <?php include "partial/footer.php" ?>
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+    <?php include "partial/footer.php" ?>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>
