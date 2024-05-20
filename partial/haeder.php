@@ -52,5 +52,21 @@ echo '
 
 ';
 
+
+
 include "loginmodal.php";
 include "signupmodal.php";
+
+if (isset($_GET['signupsuccess']) && $_GET['signupsuccess'] = true) {
+  echo '
+  
+  <div class="alert alert-success alert-dismissible my-0 fade show" role="alert">
+  <strong>THANK YOU FOR SIGNUP</strong> your signup hasebeen successful.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+  
+  
+  ';
+}
